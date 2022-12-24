@@ -1,0 +1,62 @@
+{
+  "EAP": {
+    "KERNEL_ENC_KEY": {
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": ""
+    },
+    "KERNEL_MAC_KEY": {
+      "0": "",
+      "1": "",
+      "2": "",
+      "3": ""
+    },
+    "KBL_AES_KEY": {
+      "AEOLIA": "",
+      "BELIZE": "",
+      "BELIZE 2": "",
+      "BAIKAL": ""
+    },
+    "KBL_IV": {
+      "AEOLIA": "",
+      "BELIZE": "",
+      "BELIZE 2": "",
+      "BAIKAL": ""
+    },
+    "KBL_MAC_KEY": {
+      "AEOLIA": "",
+      "BELIZE": "",
+      "BELIZE 2": "",
+      "BAIKAL": ""
+    }
+  },
+  "EMC": {
+    "IPL_AES_KEY": {
+      "AEOLIA": "",
+      "BELIZE": "",
+      "BELIZE 2": "",
+      "BAIKAL": ""
+    },
+    "IPL_IV": {
+      "AEOLIA": "",
+      "BELIZE": "",
+      "BELIZE 2": "",
+      "BAIKAL": ""
+    },
+    "IPL_MAC_KEY": {
+      "AEOLIA": "",
+      "BELIZE": "",
+      "BELIZE 2": "",
+      "BAIKAL": ""
+    }
+  },
+  "SYSCON": {
+    "FULL_AES_KEY": "",
+    "FULL_IV": "",
+    "FULL_MAC_KEY": "",
+    "PATCH_AES_KEY": "",
+    "PATCH_IV": "",
+    "PATCH_MAC_KEY": ""
+  }
+}

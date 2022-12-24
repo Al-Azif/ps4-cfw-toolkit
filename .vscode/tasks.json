@@ -1,0 +1,94 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build debug",
+      "type": "shell",
+      "command": "cmake -DCMAKE_BUILD_TYPE=Debug . && make -j6",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Build release",
+      "type": "shell",
+      "command": "cmake -DCMAKE_BUILD_TYPE=Release . && make -j6",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "clear": true
+      }
+    },
+    {
+      "label": "Cleanup Build",
+      "type": "shell",
+      "command": "rm -rf bin/ CMakeFiles/ src/CMakeFiles/ cmake_install.cmake src/cmake_install.cmake CMakeCache.txt src/CMakeCache.txt Makefile src/Makefile include/cmake_vars_eap.h include/cmake_vars_eapk.h include/cmake_vars_emc.h include/cmake_vars_syscon.h src/libCFW.a",
+      "group": "build",
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      }
+    },
+    {
+      "label": "Run clang-format",
+      "type": "shell",
+      "command": "find ./src -regex '.*\\.\\(c\\|cc\\|cpp\\|h\\|hpp\\)' -exec clang-format -style=file -i {} \\; || true && find ./include -regex '.*\\.\\(c\\|cc\\|cpp\\|h\\|hpp\\)' -exec clang-format -style=file -i {} \\; || true",
+      "group": "test",
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      }
+    },
+    {
+      "label": "Run Flawfinder",
+      "type": "shell",
+      "command": "flawfinder src/ > flawfinder_src.log 2>&1 || true && flawfinder include/ > flawfinder_include.log 2>&1 || true",
+      "group": "test",
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      }
+    },
+    {
+      "label": "Run Cppcheck",
+      "type": "shell",
+      "command": "cppcheck src/ > cppcheck_src.log 2>&1 || true && cppcheck include/ > cppcheck_include.log 2>&1  || true",
+      "group": "test",
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      }
+    },
+    {
+      "label": "Run Lint/Checks",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Run clang-format",
+        "Run Flawfinder",
+        "Run Cppcheck"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "shared",
+        "close": true
+      }
+    }
+  ]
+}

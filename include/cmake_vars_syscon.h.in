@@ -1,0 +1,10 @@
+#ifndef VERSION_H_
+#define VERSION_H_
+
+#include <string>
+
+const inline std::string g_AppVersion{"@syscon_VERSION@"};
+const inline std::string g_AppDescription{"@syscon_DESCRIPTION@"};
+const inline std::string g_AppHomepage{"@syscon_HOMEPAGE_URL@"};
+
+#endif

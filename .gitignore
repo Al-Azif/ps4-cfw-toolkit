@@ -1,0 +1,31 @@
+# NEVER include this file
+/keys.json
+
+# IDE configs
+/.vscode/*
+!/.vscode/c_cpp_properties.json
+!/.vscode/tasks.json
+
+# Testing data
+/flawfinder_src.log
+/flawfinder_include.log
+/cppcheck_src.log
+/cppcheck_include.log
+
+# Build artifacts
+/cmake_install.cmake
+/CMakeCache.txt
+/CMakeFiles/
+/Makefile
+/include/cmake_vars_eap.h
+/include/cmake_vars_eapk.h
+/include/cmake_vars_emc.h
+/include/cmake_vars_syscon.h
+
+/src/cmake_install.cmake
+/src/CMakeCache.txt
+/src/CMakeFiles/
+/src/Makefile
+/src/libCFW.a
+
+/bin/

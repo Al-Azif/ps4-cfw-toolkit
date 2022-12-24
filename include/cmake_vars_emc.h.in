@@ -1,0 +1,10 @@
+#ifndef VERSION_H_
+#define VERSION_H_
+
+#include <string>
+
+const inline std::string g_AppVersion{"@emc_VERSION@"};
+const inline std::string g_AppDescription{"@emc_DESCRIPTION@"};
+const inline std::string g_AppHomepage{"@emc_HOMEPAGE_URL@"};
+
+#endif

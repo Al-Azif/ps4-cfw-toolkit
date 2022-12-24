@@ -1,0 +1,10 @@
+#ifndef VERSION_H_
+#define VERSION_H_
+
+#include <string>
+
+const inline std::string g_AppVersion{"@eapk_VERSION@"};
+const inline std::string g_AppDescription{"@eapk_DESCRIPTION@"};
+const inline std::string g_AppHomepage{"@eapk_HOMEPAGE_URL@"};
+
+#endif

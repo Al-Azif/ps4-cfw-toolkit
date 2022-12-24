@@ -1,0 +1,7 @@
+[submodule "external/banned"]
+	path = external/banned
+	url = https://github.com/x509cert/banned
+	branch = master
+[submodule "external/json"]
+	path = external/json
+	url = https://github.com/nlohmann/json
