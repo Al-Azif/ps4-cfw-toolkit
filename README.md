@@ -16,7 +16,7 @@ What's missing as far as custom code running EVERYWHERE, that's not currently su
 - SELF Files (Encrypted and signed with private keys)
   - Would not matter if SAMU IPL is broken/custom
   - Private keys are NOT on the console
-- WiFi FW (Not encrypted or signed. One of them is packed, it's just a ZIP)
+- Bluetooth/WiFi FW (Not encrypted or signed. One of them is packed, it's just a ZIP)
   - Three revisions
 - BD Drive FW (Haven't looked at it)
   - Six revisions
