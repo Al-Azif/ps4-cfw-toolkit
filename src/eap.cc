@@ -85,7 +85,7 @@ bool DecryptKbl(const unsigned char *p_Input, size_t p_InputLen, std::vector<uns
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -186,7 +186,7 @@ bool DecryptKernel(const unsigned char *p_Input, size_t p_InputLen, std::vector<
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -296,7 +296,7 @@ bool EncryptKbl(const unsigned char *p_Input, size_t p_InputLen, std::string p_S
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0 || p_InputLen > UINT32_MAX) { // TODO: Check for ACTUAL valid max length
+  if (p_InputLen == 0 || p_InputLen > 0x7FF80) { // Max size is 0x80000, packing adds an additional 0x80 bytes
     LOG(ERROR) << "Input length is invalid";
     return false;
   }
@@ -343,7 +343,7 @@ bool EncryptKbl(const unsigned char *p_Input, size_t p_InputLen, std::string p_S
   s_Header.type = 0x6801;                                 // TODO: Is this calculated by version/item, or static
   s_Header.entry_point = 1677721600;                      // TODO: Is this calculated by version/item, or static
   s_Header.base_address = 1677721600;                     // TODO: Is this calculated by version/item, or static
-  s_Header.body_size = static_cast<uint32_t>(p_InputLen); // Oversized size_t are tested against `UINT32_MAX` above
+  s_Header.body_size = static_cast<uint32_t>(p_InputLen); // An oversized size_t is indirectly checked for earlier in this function
   s_Header.header_size = sizeof(EapKblHeader);
   std::copy(c_FillPattern_, c_FillPattern_ + sizeof(s_Header.fill_pattern), s_Header.fill_pattern); // TODO: Is this calculated by version/item, or static
   std::copy(c_KeySeed_, c_KeySeed_ + sizeof(s_Header.key_seed), s_Header.key_seed);                 // TODO: Is this calculated by version/item, or static
@@ -404,11 +404,11 @@ bool EncryptKernel(const unsigned char *p_Input, size_t p_InputLen, uint32_t p_K
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0 || p_InputLen > UINT32_MAX) { // TODO: Check for ACTUAL valid max length
+  if (p_InputLen == 0 || p_InputLen > UINT32_MAX) { // TODO: Check for ACTUAL valid max length
     LOG(ERROR) << "Input length is invalid";
     return false;
   }
-  if (p_KeysetNumber < 0 || p_KeysetNumber > 3) {
+  if (/*p_KeysetNumber < 0 ||*/ p_KeysetNumber > 3) {
     LOG(ERROR) << "Invalid keyset selection";
     return false;
   }

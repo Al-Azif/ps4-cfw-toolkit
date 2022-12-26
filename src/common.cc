@@ -25,7 +25,7 @@ bool CheckMagic(const unsigned char *p_Input, const char *p_Magic, size_t p_Magi
     LOG(ERROR) << "Input magic is NULL";
     return false;
   }
-  if (p_MagicLen <= 0) {
+  if (p_MagicLen == 0) {
     LOG(ERROR) << "Magic length is zero";
     return false;
   }
@@ -65,7 +65,7 @@ bool WriteFile(const unsigned char *p_Input, size_t p_InputLen, const std::strin
   }
 
   // Zero byte files DO exist, but we can use this check to help find/debug issues
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(WARNING) << "Input length is zero";
   }
 

@@ -56,7 +56,7 @@ uint64_t Pattern(unsigned char *p_Input, size_t p_InputLen, const char *p_Search
 }
 
 uint64_t PatternStartAt(unsigned char *p_Input, size_t p_InputLen, const char *p_Search, size_t p_SearchLen, const char *p_Replace, size_t p_ReplaceLen, size_t p_StartAddr, size_t p_Occurances) {
-  if (p_InputLen == 0 || p_SearchLen == 0 || p_ReplaceLen == 0) {
+  if (p_InputLen == 0 || p_SearchLen == 0 || p_ReplaceLen == 0 || p_InputLen == p_StartAddr) {
     return 0;
   }
   if (p_InputLen < p_StartAddr) {
@@ -71,10 +71,9 @@ uint64_t PatternEndAt(unsigned char *p_Input, size_t p_InputLen, const char *p_S
   if (p_InputLen == 0 || p_SearchLen == 0 || p_ReplaceLen == 0) {
     return 0;
   }
-  size_t s_EndAddr{p_EndAddr};
   if (p_InputLen < p_EndAddr) {
-    LOG(WARNING) << "Patch must not overflow input";
-    s_EndAddr = p_InputLen;
+    LOG(ERROR) << "Patch must not overflow input";
+    return 0;
   }
 
   return Pattern(p_Input, p_EndAddr, p_Search, p_SearchLen, p_Replace, p_ReplaceLen, p_Occurances);

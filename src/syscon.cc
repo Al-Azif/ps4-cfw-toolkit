@@ -73,7 +73,7 @@ bool Decrypt(const unsigned char *p_Input, size_t p_InputLen, std::vector<unsign
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -141,7 +141,7 @@ bool Encrypt(const unsigned char *p_Input, size_t p_InputLen, std::vector<unsign
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) { // TODO: Check for ACTUAL valid max length
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -171,9 +171,17 @@ bool Encrypt(const unsigned char *p_Input, size_t p_InputLen, std::vector<unsign
   }
 
   if (s_Patch) {
+    if (p_InputLen > 0x7F0 + s_CmacLen) { // Max size is 0x800 with CMAC
+      LOG(ERROR) << "Input length is invalid";
+      return false;
+    }
     return EncryptPatch(p_Input + s_CmacLen, p_InputLen - s_CmacLen, p_Output);
   }
 
+  if (p_InputLen > UINT32_MAX) { // TODO: Check for ACTUAL valid max length
+    LOG(ERROR) << "Input length is invalid";
+    return false;
+  }
   return EncryptFull(p_Input + s_CmacLen, p_InputLen - s_CmacLen, p_Output);
 }
 } // namespace syscon

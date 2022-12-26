@@ -57,7 +57,7 @@ bool Decrypt(const unsigned char *p_Input, size_t p_InputLen, std::vector<unsign
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -158,7 +158,7 @@ bool Encrypt(const unsigned char *p_Input, size_t p_InputLen, std::string p_Sout
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0 || p_InputLen > UINT32_MAX) { // TODO: Check for ACTUAL valid max length
+  if (p_InputLen == 0 || p_InputLen > 0x5FF94) { // Max size is 0x60000, packing adds an additional 0x6C bytes
     LOG(ERROR) << "Input length is invalid";
     return false;
   }
@@ -167,7 +167,7 @@ bool Encrypt(const unsigned char *p_Input, size_t p_InputLen, std::string p_Sout
     return false;
   }
 
-  // TODO: Check to see if input is a EMC IPL (No real magic?)
+  // TODO: Check to see if input is a EMC IPL (No file magic number?)
 
   unsigned char s_BodyKey[AES_BLOCK_SIZE]; // Flawfinder: ignore
   if (!RAND_bytes(s_BodyKey, AES_BLOCK_SIZE)) {
@@ -202,7 +202,7 @@ bool Encrypt(const unsigned char *p_Input, size_t p_InputLen, std::string p_Sout
   s_Header.type = 0x4801;                                 // TODO: Is this calculated by version/item, or static
   s_Header.entry_point = 1051648;                         // TODO: Is this calculated by version/item, or static
   s_Header.base_address = 1051648;                        // TODO: Is this calculated by version/item, or static
-  s_Header.body_size = static_cast<uint32_t>(p_InputLen); // Oversized size_t are tested against `UINT32_MAX` above
+  s_Header.body_size = static_cast<uint32_t>(p_InputLen); // An oversized size_t is indirectly checked for earlier in this function
   s_Header.header_size = sizeof(EmcIplHeader);
   std::copy(c_FillPattern_, c_FillPattern_ + sizeof(s_Header.fill_pattern), s_Header.fill_pattern); // TODO: Is this calculated by version/item, or static
   std::copy(c_KeySeed_, c_KeySeed_ + sizeof(s_Header.key_seed), s_Header.key_seed);                 // TODO: Is this calculated by version/item, or static

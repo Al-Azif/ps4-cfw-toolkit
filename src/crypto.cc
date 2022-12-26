@@ -34,7 +34,7 @@ bool RsaPkcs1V15Verify(const unsigned char *p_Modulus, size_t p_ModulusLen, cons
     LOG(ERROR) << "Modulus data is NULL";
     return false;
   }
-  if (p_ModulusLen <= 0) {
+  if (p_ModulusLen == 0) {
     LOG(ERROR) << "Modulus length is zero";
     return false;
   }
@@ -42,7 +42,7 @@ bool RsaPkcs1V15Verify(const unsigned char *p_Modulus, size_t p_ModulusLen, cons
     LOG(ERROR) << "Public Exponent data is NULL";
     return false;
   }
-  if (p_PublicExponentLen <= 0) {
+  if (p_PublicExponentLen == 0) {
     LOG(ERROR) << "Public Exponent length is zero";
     return false;
   }
@@ -50,7 +50,7 @@ bool RsaPkcs1V15Verify(const unsigned char *p_Modulus, size_t p_ModulusLen, cons
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -58,7 +58,7 @@ bool RsaPkcs1V15Verify(const unsigned char *p_Modulus, size_t p_ModulusLen, cons
     LOG(ERROR) << "Signature data is NULL";
     return false;
   }
-  if (p_SignatureLen <= 0) {
+  if (p_SignatureLen == 0) {
     LOG(ERROR) << "Signature length is zero";
     return false;
   }
@@ -168,7 +168,7 @@ bool RsaPublicEncrypt(const unsigned char *p_Modulus, size_t p_ModulusLen, const
     LOG(ERROR) << "Modulus data is NULL";
     return false;
   }
-  if (p_ModulusLen <= 0) {
+  if (p_ModulusLen == 0) {
     LOG(ERROR) << "Modulus length is zero";
     return false;
   }
@@ -176,7 +176,7 @@ bool RsaPublicEncrypt(const unsigned char *p_Modulus, size_t p_ModulusLen, const
     LOG(ERROR) << "Public Exponent data is NULL";
     return false;
   }
-  if (p_PublicExponentLen <= 0) {
+  if (p_PublicExponentLen == 0) {
     LOG(ERROR) << "Public Exponent length is zero";
     return false;
   }
@@ -184,11 +184,11 @@ bool RsaPublicEncrypt(const unsigned char *p_Modulus, size_t p_ModulusLen, const
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
-  if (p_OutputLen <= 0) {
+  if (p_OutputLen == 0) {
     LOG(ERROR) << "Output length is zero";
     return false;
   }
@@ -320,7 +320,7 @@ size_t AesEncryptEcb(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Key data is NULL";
     return 0;
   }
-  if (p_KeyLen <= 0) {
+  if (p_KeyLen == 0) {
     LOG(ERROR) << "Key length is zero";
     return 0;
   }
@@ -328,7 +328,7 @@ size_t AesEncryptEcb(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Input data is NULL";
     return 0;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return 0;
   }
@@ -420,7 +420,7 @@ size_t AesDecryptEcb(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Key data is NULL";
     return 0;
   }
-  if (p_KeyLen <= 0) {
+  if (p_KeyLen == 0) {
     LOG(ERROR) << "Key length is zero";
     return 0;
   }
@@ -428,7 +428,7 @@ size_t AesDecryptEcb(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Input data is NULL";
     return 0;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return 0;
   }
@@ -520,7 +520,7 @@ size_t AesEncryptCbc(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Key data is NULL";
     return 0;
   }
-  if (p_KeyLen <= 0) {
+  if (p_KeyLen == 0) {
     LOG(ERROR) << "Key length is zero";
     return 0;
   }
@@ -532,7 +532,7 @@ size_t AesEncryptCbc(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Input data is NULL";
     return 0;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return 0;
   }
@@ -624,7 +624,7 @@ size_t AesDecryptCbc(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Key data is NULL";
     return 0;
   }
-  if (p_KeyLen <= 0) {
+  if (p_KeyLen == 0) {
     LOG(ERROR) << "Key length is zero";
     return 0;
   }
@@ -636,7 +636,7 @@ size_t AesDecryptCbc(const unsigned char *p_Key, size_t p_KeyLen, const unsigned
     LOG(ERROR) << "Input data is NULL";
     return 0;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return 0;
   }
@@ -728,7 +728,7 @@ size_t AesEncryptCbcCts(const unsigned char *p_Key, size_t p_KeyLen, const unsig
     LOG(ERROR) << "Key data is NULL";
     return 0;
   }
-  if (p_KeyLen <= 0) {
+  if (p_KeyLen == 0) {
     LOG(ERROR) << "Key length is zero";
     return 0;
   }
@@ -740,7 +740,7 @@ size_t AesEncryptCbcCts(const unsigned char *p_Key, size_t p_KeyLen, const unsig
     LOG(ERROR) << "Input data is NULL";
     return 0;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return 0;
   }
@@ -799,7 +799,7 @@ size_t AesDecryptCbcCts(const unsigned char *p_Key, size_t p_KeyLen, const unsig
     LOG(ERROR) << "Key data is NULL";
     return 0;
   }
-  if (p_KeyLen <= 0) {
+  if (p_KeyLen == 0) {
     LOG(ERROR) << "Key length is zero";
     return 0;
   }
@@ -811,7 +811,7 @@ size_t AesDecryptCbcCts(const unsigned char *p_Key, size_t p_KeyLen, const unsig
     LOG(ERROR) << "Input data is NULL";
     return 0;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return 0;
   }
@@ -868,7 +868,7 @@ bool Sha256(const unsigned char *p_Input, size_t p_InputLen, std::vector<unsigne
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -935,7 +935,7 @@ bool HmacSha1(const unsigned char *p_Key, int32_t p_KeyLen, const unsigned char 
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -1013,7 +1013,7 @@ bool HmacSha256(const unsigned char *p_Key, int32_t p_KeyLen, const unsigned cha
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
@@ -1092,7 +1092,7 @@ bool Cmac(const unsigned char *p_Key, int32_t p_KeyLen, const unsigned char *p_I
     LOG(ERROR) << "Input data is NULL";
     return false;
   }
-  if (p_InputLen <= 0) {
+  if (p_InputLen == 0) {
     LOG(ERROR) << "Input length is zero";
     return false;
   }
