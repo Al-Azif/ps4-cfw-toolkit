@@ -33,7 +33,7 @@ What's missing as far as custom code running EVERYWHERE, that's not currently su
 - [gflags](https://github.com/gflags/gflags)
 - [glog](https://github.com/google/glog)
 - OpenSSL (1.1.1 Recommended)
-  - \>=3.0.0 will raising warnings for depreciated low level API usage. With the included C++ flags warning are errors.
+  - \>=3.0.0 will raise warnings for depreciated low level API usage. With the included C++ flags warning are errors.
 
 ## EAP
 
