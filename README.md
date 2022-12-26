@@ -1,5 +1,7 @@
 # "CFW" Toolkit
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b4c0b036b73d4547a05a604b726b51a3)](https://www.codacy.com/gh/Al-Azif/ps4-cfw-toolkit/dashboard)
+
 With the proper keys, all of which can be obtained from the console, you can decrypt AND properly encrypt the following binary images:
 
 - EAP KBL (Kernel Boot Loader)
